@@ -1,5 +1,6 @@
 package com.example.phase5;
 
+import com.example.stringprocessormodule.IStringProcessorProxy;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -10,7 +11,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class StringProcessorProxy {
+public class StringProcessorProxy implements IStringProcessorProxy {
 
     private StringProcessorProxy(){}
     private static StringProcessorProxy instance = new StringProcessorProxy();
@@ -91,6 +92,21 @@ public class StringProcessorProxy {
         OutputStreamWriter sw = new OutputStreamWriter(os);
         sw.write(str);
         sw.flush();
+    }
+
+    @Override
+    public String toLower(String s) {
+        return null;
+    }
+
+    @Override
+    public String trim(String s) {
+        return null;
+    }
+
+    @Override
+    public String parseDouble(String s) {
+        return null;
     }
 }
 

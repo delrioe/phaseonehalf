@@ -75,7 +75,8 @@
                 android:paddingRight="10dp"/>
             <ToggleButton
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/toggle_button"/>
             </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"

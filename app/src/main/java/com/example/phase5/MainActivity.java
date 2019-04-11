@@ -14,6 +14,9 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.ToggleButton;
+
+import com.example.stringprocessormodule.IStringProcessorProxy;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,11 +24,12 @@ public class MainActivity extends AppCompatActivity {
     private EditText mIP;
     private EditText mPort;
     private EditText mTextToChange;
+    private ToggleButton mToggleButton;
 
     private String ip;
     private String port;
     private String textToChange;
-    private StringProcessorProxy mServerProxy;
+    private IStringProcessorProxy mServerProxy;
 
     private Button mToLower;
     private Button mTrim;
@@ -56,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         mToLower = findViewById(R.id.button_tolowercase);
         mTrim = findViewById(R.id.button_trim);
         mDoubleParse = findViewById(R.id.button_parseDouble);
+        mToggleButton = findViewById(R.id.toggle_button);
 
         mIP.addTextChangedListener(new TextWatcher() {
             @Override
@@ -144,20 +149,50 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendToLower(View view) {
+        //Command on
+        if(mToggleButton.isChecked()){
+            String response;
+            response = mServerProxy.toLower(textToChange);
+            displayResult(response);
 
+        }
+        //Command NOT on
+        else{
+
+
+        }
 //        String response = new ContactServer(
 //        displayResult(response);
     }
 
     public void sendTrim(View view) {
+        //Command on
+        if(mToggleButton.isChecked()){
+
+        }
+        //Command NOT on
+        else{
+
+        }
+
+
 //        String response;
 //        displayResult(response);
 
     }
 
     public void sendParseDouble(View view) {
-//        String response;
-//        displayResult(response);
+        //Command on
+        if(mToggleButton.isChecked()){
+
+        }
+        //Command NOT on
+        else{
+
+
+        }
+        //        String response;
+        //        displayResult(response);
 
     }
 

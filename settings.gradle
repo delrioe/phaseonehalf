@@ -1,1 +1,1 @@
-include ':app', ':server', ':ServerSide'
+include ':app', ':server', ':ServerSide', ':StringProcessorModule'
