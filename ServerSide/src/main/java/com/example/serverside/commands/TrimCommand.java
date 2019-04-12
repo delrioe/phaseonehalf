@@ -6,9 +6,12 @@ import com.example.stringprocessormodule.CommandData;
 import com.example.stringprocessormodule.CommandType;
 import com.example.stringprocessormodule.IStringProcessorProxy;
 
-public class ToLowerCommandCaseCommand implements ICommand {
+public class TrimCommand implements ICommand {
 
-    private CommandData myData;
+    public TrimCommand (CommandData data){
+        myData = data;
+    }
+
 
     public CommandData getMyData() {
         return myData;
@@ -18,16 +21,14 @@ public class ToLowerCommandCaseCommand implements ICommand {
         this.myData = myData;
     }
 
-    public ToLowerCommandCaseCommand(CommandData myData_in){
-        myData = myData_in;
-    }
-
+    private CommandData myData;
 
 
     @Override
     public CommandData execute() {
-        IStringProcessorProxy stringProcessorProxy = new StringProcessor();
-        CommandData response = new CommandData(CommandType.TOLOWER, stringProcessorProxy.toLower(myData.getData()));
+        IStringProcessorProxy processorProxy = new StringProcessor();
+
+        CommandData response = new CommandData(CommandType.TRIM, processorProxy.trim(myData.getData()));
         return response;
 
 

@@ -2,6 +2,11 @@ package com.example.stringprocessormodule;
 
 public class CommandData {
 
+    private CommandType type;
+    private String data;
+
+
+
     public void setType(CommandType type) {
         this.type = type;
     }
@@ -10,8 +15,6 @@ public class CommandData {
         this.data = data;
     }
 
-    private CommandType type;
-    private String data;
 
     public CommandData (CommandType type_in, String data_in){
         type = type_in;

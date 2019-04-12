@@ -1,8 +1,10 @@
 package com.example.serverside;
 
+import com.example.stringprocessormodule.CommandData;
+
 public interface ICommand {
 
-    public String execute(String message);
+    public CommandData execute();
 
 
 }
