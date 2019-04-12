@@ -1,16 +1,16 @@
-package com.example.serverside;
+package com.example.serverside.handlers;
 
+import com.example.serverside.StringProcessor;
+import com.example.serverside.handlers.HandlerBase;
 import com.example.stringprocessormodule.IStringProcessorProxy;
 import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.io.Reader;
 import java.net.HttpURLConnection;
 
 
