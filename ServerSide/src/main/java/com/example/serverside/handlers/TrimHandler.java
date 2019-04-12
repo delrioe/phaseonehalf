@@ -16,7 +16,7 @@ import java.net.HttpURLConnection;
 public class TrimHandler extends HandlerBase {
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
-        System.out.println("I AM HERE IN TRIM");
+        System.out.println("NO COMMAND TRIM");
         try {
             if (httpExchange.getRequestMethod().toLowerCase().equals("post")) {
                 InputStream input = httpExchange.getRequestBody();

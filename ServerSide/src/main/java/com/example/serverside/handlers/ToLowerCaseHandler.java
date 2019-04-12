@@ -17,7 +17,7 @@ import java.net.HttpURLConnection;
 public class ToLowerCaseHandler extends HandlerBase {
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
-        System.out.println("I AM HERE IN TOLOWERCASEHANDLER");
+        System.out.println("NO COMMAND LOWER CASE");
         try {
             if (httpExchange.getRequestMethod().toLowerCase().equals("post")) {
                 InputStream input = httpExchange.getRequestBody();

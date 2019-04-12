@@ -54,7 +54,7 @@ public class StringProcessorProxy implements IStringProcessorProxy {
 
         }
 
-        String messageBack = mCommunicator.send(ip, port, "/command", s);
+        String messageBack = mCommunicator.send(ip, port, directory, s);
         return  messageBack;
 
 
@@ -66,7 +66,7 @@ public class StringProcessorProxy implements IStringProcessorProxy {
         if (usingCommand) {
 
             CommandData command = new CommandData(CommandType.PARSEDOUBLE, s);
-            CommandData response = mCommunicator.sendCommand(ip, port, directory, command);
+            CommandData response = mCommunicator.sendCommand(ip, port, "/command", command);
             return response.getData();
 
         }
