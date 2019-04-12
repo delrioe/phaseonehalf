@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private String ip;
     private String port;
     private String textToChange;
+    private String response;
     private IStringProcessorProxy mServerProxy;
 
     private Button mToLower;
@@ -125,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
     //Well that did not seem to work
     //Another test
 //This is a test from my laprtop
-    //This is a test from my pc
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -135,79 +136,60 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     public void sendToLower(View view) {
-        //Command on
-        if(mToggleButton.isChecked()){
-            String response;
-            response = mServerProxy.toLower(textToChange);
-            displayResult(response);
+        StringProcessorProxy.setIPandPort(mToggleButton.isChecked(), mIP.getText().toString(), mPort.getText().toString(), "/toLower");
 
-        }
-        //Command NOT on
-        else{
+        new ToLowerTask().execute();
 
-
-        }
-//        String response = new ContactServer(
-//        displayResult(response);
     }
 
     public void sendTrim(View view) {
-        //Command on
-        if(mToggleButton.isChecked()){
-
-        }
-        //Command NOT on
-        else{
-
-        }
-
-
-//        String response;
-//        displayResult(response);
+        StringProcessorProxy.setIPandPort(mToggleButton.isChecked(), mIP.getText().toString(), mPort.getText().toString(), "/trim");
+        new TrimTask().execute();
 
     }
 
     public void sendParseDouble(View view) {
-        //Command on
-        if(mToggleButton.isChecked()){
 
-        }
-        //Command NOT on
-        else{
+        StringProcessorProxy.setIPandPort(mToggleButton.isChecked(), mIP.getText().toString(), mPort.getText().toString(), "/parseDouble");
+        new ParseDoubleTask().execute();
+    }
 
-
-        }
-        //        String response;
-        //        displayResult(response);
-
+    public void displayMessage(View view) {
+        mDisplayMessage.setText(response);
     }
 
 
-    public void displayResult (String message){
-        mDisplayMessage.setText(message);
-    }
-
-
-
-    public class ContactServer extends AsyncTask<Void, Void, Void>{
+    public class ToLowerTask extends AsyncTask<Void, Void, String>{
         @Override
-        protected Void doInBackground(Void... voids) {
-
-            return null;
+        protected String doInBackground(Void... voids) {
+            response = mServerProxy.toLower(textToChange);
+            return response;
         }
     }
+
+    public class TrimTask extends AsyncTask<Void, Void, String>{
+        @Override
+        protected String doInBackground(Void... voids){
+            response = mServerProxy.trim(textToChange);
+            return response;
+        }
+    }
+
+    public class ParseDoubleTask extends AsyncTask<Void, Void, String>{
+        @Override
+        protected String doInBackground(Void... voids){
+            response = mServerProxy.parseDouble(textToChange);
+            return response;
+        }
+    }
+
 }

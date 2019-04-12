@@ -2,6 +2,7 @@ apply plugin: 'java-library'
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation files('/Users/elevi/Library/Mobile Documents/com~apple~CloudDocs/SCHOOL/Winter2019/CS340/phaseonehalf/StringProcessorModule/build/libs/StringProcessorModule.jar')
 }
 
 sourceCompatibility = "7"
